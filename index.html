@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KADIWA UNITY GAMES 2026 Registration</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1cb5e0, #000851);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #333;
+      padding: 40px 0;
+    }
+    .container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    header { text-align: center; margin-bottom: 25px; }
+    header h1 { color: #0066cc; font-size: 1.8em; margin-bottom: 8px; }
+    header p { color: #555; }
+    form .form-group { margin-bottom: 18px; position: relative; }
+    label { font-weight: 600; margin-bottom: 6px; display: block; }
+    .required { color: red; }
+    input, select, textarea {
+      width: 100%; padding: 10px; border: 1.5px solid #ccc;
+      border-radius: 6px; font-size: 0.95em; transition: 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #0066cc;
+      box-shadow: 0 0 6px rgba(0, 102, 204, 0.3);
+      outline: none;
+    }
+    textarea { resize: none; height: 60px; }
+    button {
+      width: 100%; background: #0066cc; color: white; padding: 12px;
+      border: none; border-radius: 6px; font-size: 1em; cursor: pointer;
+      transition: 0.3s; font-weight: 600;
+    }
+    button:hover { background: #0052a3; }
+    .link-box { text-align: center; margin-top: 15px; }
+    .link-box button {
+      background: none; border: none; color: #0066cc;
+      text-decoration: underline; font-weight: 600; cursor: pointer;
+    }
+    .link-box button:hover { color: #004d99; }
+    footer { text-align: center; margin-top: 25px; font-size: 0.85em; color: #666; }
+    .admin table {
+      width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9em;
+    }
+    .admin th, .admin td {
+      border: 1px solid #ccc; padding: 8px 10px; text-align: center; cursor: pointer;
+    }
+    .admin th {
+      background-color: #0066cc; color: white; position: sticky; top: 0;
+    }
+    .admin tr:nth-child(even) { background-color: #f5f5f5; }
+    .admin .back-btn {
+      display: inline-block; background: #777; color: white;
+      padding: 10px 15px; border-radius: 6px; text-decoration: none;
+      font-size: 0.9em; margin-right: 10px;
+    }
+    .admin .back-btn:hover { background: #555; }
+    .hidden { display: none; }
+    .toggle-password {
+      position: absolute; right: 12px; top: 38px; cursor: pointer; color: black; font-size: 1.1em;
+    }
+    #globalSearch, #itSearch {
+      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;
+      font-size: 0.9em; margin-bottom: 15px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 25px 20px; }
+      header h1 { font-size: 1.5em; }
+      .admin table { font-size: 0.8em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Registration Page -->
+<div class="container" id="registrationPage">
+  <header>
+    <h1>🏆 KADIWA UNITY GAMES 2026</h1>
+    <p>Fill out the registration form below completely.</p>
+  </header>
+
+  <form id="registrationForm">
+    <div class="form-group"><label>First Name <span class="required">*</span></label><input type="text" id="firstname" required></div>
+    <div class="form-group"><label>Last Name <span class="required">*</span></label><input type="text" id="lastname" required></div>
+    <div class="form-group"><label>Birthday <span class="required">*</span></label><input type="date" id="birthday" required></div>
+    <div class="form-group"><label>Age <span class="required">*</span></label><input type="number" id="age" readonly></div>
+    <div class="form-group"><label>Gender <span class="required">*</span></label>
+      <select id="gender" required>
+        <option value="">-- Select Gender --</option><option>Male</option><option>Female</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Contact Number <span class="required">*</span></label><input type="tel" id="contact" placeholder="09XXXXXXXXX" pattern="[0-9]{11}" required></div>
+    <div class="form-group"><label>Email (Optional)</label><input type="email" id="email"></div>
+    <div class="form-group"><label>Local <span class="required">*</span></label><input type="text" id="local" required></div>
+    <div class="form-group"><label>Sport <span class="required">*</span></label>
+      <select id="sport" required>
+        <option value="">-- Choose Sport --</option>
+        <option>Basketball</option><option>Volleyball</option><option>Badminton</option>
+        <option>Chess</option><option>Scrabble</option><option>Dart</option><option>Others</option>
+        <option value="N/A">No Sports</option>
+      </select>
+    </div>
+    <div class="form-group hidden" id="otherSportGroup"><label>Specify Other Sport <span class="required">*</span></label><input type="text" id="otherSport" placeholder="Enter sport name"></div>
+    <div class="form-group"><label>Notes (Optional)</label><textarea id="notes"></textarea></div>
+    <button type="submit">Submit Registration</button>
+  </form>
+
+  <div class="link-box"><button id="toLogin">👩‍💼 Go to Admin Login</button></div>
+  <footer><p>District of Sorsogon | Kapisanan KADIWA</p></footer>
+</div>
+
+<!-- ✅ Login Page -->
+<div class="container hidden" id="loginPage">
+  <header><h1>🔐 Admin Login</h1><p>Enter your username and password to access admin panel.</p></header>
+  <form id="loginForm">
+    <div class="form-group"><label>Username</label><input type="text" id="username" required></div>
+    <div class="form-group"><label>Password</label><input type="password" id="password" required><span id="togglePassword" class="toggle-password">👁</span></div>
+    <button type="submit">Login</button>
+  </form>
+  <div class="link-box"><button id="backToForm">⬅ Back to Registration</button></div>
+</div>
+
+<!-- ✅ Admin Page -->
+<div class="container admin hidden" id="adminPage">
+  <header><h1>📋 Registered Players</h1></header>
+  <input type="text" id="globalSearch" placeholder="🔍 Search any field...">
+  <div style="overflow-x:auto;">
+    <table id="playersTable">
+      <thead>
+        <tr>
+          <th>#</th><th>Full Name</th><th>Birthday</th><th>Age</th><th>Gender</th><th>Contact</th><th>Email</th><th>Local</th><th>Sport</th><th>Notes</th><th>Date & Time</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="link-box">
+    <button id="logoutBtn" class="back-btn">⬅ Logout</button>
+    <button id="clearData" class="hidden">🗑 Clear All Data</button>
+  </div>
+</div>
+
+<!-- ✅ IT Page -->
+<div class="container admin hidden" id="itPage">
+  <header><h1>🖥 IT Specialist Panel</h1></header>
+  <input type="text" id="itSearch" placeholder="🔍 Search any field...">
+  <div style="overflow-x:auto;">
+    <table id="itTable">
+      <thead>
+        <tr>
+          <th>Select</th><th>#</th><th>Full Name</th><th>Birthday</th><th>Age</th><th>Gender</th><th>Contact</th><th>Email</th><th>Local</th><th>Sport</th><th>Notes</th><th>Date & Time</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="link-box">
+    <button id="deleteSelected" class="back-btn" style="background:#c0392b;">🗑 Delete Selected</button>
+    <button id="itLogoutBtn" class="back-btn">⬅ Logout</button>
+  </div>
+</div>
+
+<script>
+const registrationPage = document.getElementById("registrationPage");
+const loginPage = document.getElementById("loginPage");
+const adminPage = document.getElementById("adminPage");
+const clearDataBtn = document.getElementById("clearData");
+const sportSelect = document.getElementById("sport");
+const otherSportGroup = document.getElementById("otherSportGroup");
+const otherSportInput = document.getElementById("otherSport");
+const itPage = document.getElementById("itPage");
+
+document.getElementById("toLogin").onclick = () => { registrationPage.classList.add("hidden"); loginPage.classList.remove("hidden"); };
+document.getElementById("backToForm").onclick = () => { loginPage.classList.add("hidden"); registrationPage.classList.remove("hidden"); };
+
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+togglePassword.onclick = () => {
+  const type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.type = type;
+  togglePassword.textContent = type === "password" ? "👁" : "🙈";
+};
+
+sportSelect.onchange = () => {
+  if (sportSelect.value === "Others") {
+    otherSportGroup.classList.remove("hidden");
+    otherSportInput.required = true;
+  } else {
+    otherSportGroup.classList.add("hidden");
+    otherSportInput.required = false;
+    otherSportInput.value = "";
+  }
+};
+
+document.getElementById("birthday").onchange = function() {
+  const birthDate = new Date(this.value);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+  document.getElementById("age").value = age;
+};
+
+document.getElementById("registrationForm").onsubmit = e => {
+  e.preventDefault();
+  let chosenSport = sportSelect.value;
+  if (chosenSport === "Others") chosenSport = otherSportInput.value.trim() || "Unspecified";
+  const now = new Date();
+  const dateTime = now.toLocaleString();
+  const player = {
+    firstname: firstname.value.trim(), lastname: lastname.value.trim(), birthday: birthday.value,
+    age: age.value, gender: gender.value, contact: contact.value.trim(), email: email.value.trim(),
+    local: local.value.trim(), sport: chosenSport, notes: notes.value.trim(), registeredAt: dateTime
+  };
+  const existing = JSON.parse(localStorage.getItem("players")) || [];
+  existing.push(player);
+  localStorage.setItem("players", JSON.stringify(existing));
+  alert(`✅ Thank you, ${player.firstname}! You are registered for ${player.sport}.`);
+  e.target.reset(); age.value = ""; otherSportGroup.classList.add("hidden");
+};
+
+document.getElementById("loginForm").onsubmit = e => {
+  e.preventDefault();
+  const user = username.value.trim().toLowerCase();
+  const pass = password.value.trim();
+  if (user === "admin" && pass === "admin123") showAdmin("admin");
+  else if (user === "it" && pass === "tech123") showAdmin("it");
+  else alert("❌ Invalid username or password.");
+  e.target.reset();
+};
+
+function showAdmin(role) {
+  loginPage.classList.add("hidden");
+  if (role === "it") {
+    adminPage.classList.add("hidden");
+    itPage.classList.remove("hidden");
+    loadITPlayers();
+  } else {
+    itPage.classList.add("hidden");
+    adminPage.classList.remove("hidden");
+    loadPlayers();
+  }
+}
+
+document.getElementById("logoutBtn").onclick = () => { adminPage.classList.add("hidden"); loginPage.classList.remove("hidden"); };
+document.getElementById("itLogoutBtn").onclick = () => { itPage.classList.add("hidden"); loginPage.classList.remove("hidden"); };
+
+function loadPlayers() {
+  const players = JSON.parse(localStorage.getItem("players")) || [];
+  const tableBody = document.querySelector("#playersTable tbody");
+  tableBody.innerHTML = "";
+  if (players.length === 0) { tableBody.innerHTML = `<tr><td colspan="11">No players registered yet.</td></tr>`; return; }
+  players.forEach((p, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${i + 1}</td><td>${p.firstname} ${p.lastname}</td><td>${p.birthday}</td><td>${p.age}</td>
+      <td>${p.gender}</td><td>${p.contact}</td><td>${p.email || '-'}</td><td>${p.local}</td>
+      <td>${p.sport}</td><td>${p.notes || '-'}</td><td>${p.registeredAt || '-'}</td>`;
+    tableBody.appendChild(row);
+  });
+}
+
+// ✅ FIXED SORTING (Birthday now sorts by month/day correctly)
+function enableTableSorting(tableSelector) {
+  document.querySelectorAll(`${tableSelector} th`).forEach((header, index) => {
+    header.addEventListener("click", () => {
+      const table = header.closest("table");
+      const tbody = table.querySelector("tbody");
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      const asc = header.asc = !header.asc;
+
+      rows.sort((a, b) => {
+        const aText = a.children[index].textContent.trim();
+        const bText = b.children[index].textContent.trim();
+
+        // 🎂 Birthday sorting (month/day only)
+        if (header.textContent.includes("Birthday")) {
+          const aDate = new Date(aText);
+          const bDate = new Date(bText);
+          const aVal = aDate.getMonth() * 100 + aDate.getDate();
+          const bVal = bDate.getMonth() * 100 + bDate.getDate();
+          return asc ? aVal - bVal : bVal - aVal;
+        }
+
+        // 🔢 Numeric sorting
+        const aNum = parseFloat(aText);
+        const bNum = parseFloat(bText);
+        if (!isNaN(aNum) && !isNaN(bNum)) {
+          return asc ? aNum - bNum : bNum - aNum;
+        }
+
+        // 🔤 Text sorting
+        return asc ? aText.localeCompare(bText) : bText.localeCompare(aText);
+      });
+
+      rows.forEach(row => tbody.appendChild(row));
+    });
+  });
+}
+
+enableTableSorting("#playersTable");
+enableTableSorting("#itTable");
+
+document.getElementById("globalSearch").addEventListener("keyup", function() {
+  const filter = this.value.toLowerCase();
+  document.querySelectorAll("#playersTable tbody tr").forEach(row => {
+    const text = row.textContent.toLowerCase();
+    row.style.display = text.includes(filter) ? "" : "none";
+  });
+});
+
+clearDataBtn.onclick = () => {
+  if (confirm("Are you sure you want to delete all records?")) {
+    localStorage.removeItem("players");
+    loadPlayers();
+  }
+};
+
+// --- IT Page ---
+function loadITPlayers() {
+  const players = JSON.parse(localStorage.getItem("players")) || [];
+  const tbody = document.querySelector("#itTable tbody");
+  tbody.innerHTML = "";
+  if (players.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="12">No data available.</td></tr>`;
+    return;
+  }
+  players.forEach((p, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td><input type="checkbox" class="deleteCheck" data-index="${i}"></td>
+      <td>${i + 1}</td>
+      <td>${p.firstname} ${p.lastname}</td>
+      <td>${p.birthday}</td>
+      <td>${p.age}</td>
+      <td>${p.gender}</td>
+      <td>${p.contact}</td>
+      <td>${p.email || '-'}</td>
+      <td>${p.local}</td>
+      <td>${p.sport}</td>
+      <td>${p.notes || '-'}</td>
+      <td>${p.registeredAt || '-'}</td>`;
+    tbody.appendChild(row);
+  });
+}
+
+document.getElementById("deleteSelected").onclick = () => {
+  const checkboxes = document.querySelectorAll(".deleteCheck:checked");
+  if (checkboxes.length === 0) return alert("No rows selected.");
+  if (!confirm(`Delete ${checkboxes.length} record(s)?`)) return;
+  const players = JSON.parse(localStorage.getItem("players")) || [];
+  const remaining = players.filter((_, i) => ![...checkboxes].some(cb => +cb.dataset.index === i));
+  localStorage.setItem("players", JSON.stringify(remaining));
+  loadITPlayers();
+};
+
+document.getElementById("itSearch").addEventListener("keyup", function() {
+  const filter = this.value.toLowerCase();
+  document.querySelectorAll("#itTable tbody tr").forEach(row => {
+    const text = row.textContent.toLowerCase();
+    row.style.display = text.includes(filter) ? "" : "none";
+  });
+});
+</script>
+</body>
+</html>
